@@ -1,10 +1,40 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CovidContactApp {
     public static void main(String[] args){
         Scanner keyboard = new Scanner(System.in);
+        ArrayList<Symptom> symptomList = new ArrayList<>();
         char infectedPerson = 'y';
         Infected infected;
+
+        //instantiating symptoms
+        Symptom fever = new Symptom("Fever");
+        Symptom cough = new Symptom("Cough");
+        Symptom shortBreath = new Symptom("Shortness of breath or difficulty breathing");
+        Symptom tired = new Symptom("Tiredness");
+        Symptom aches = new Symptom("Aches");
+        Symptom chills = new Symptom("Chills");
+        Symptom soreThroat = new Symptom("Sore throat");
+        Symptom lossSmell = new Symptom("Loss of smell");
+        Symptom lossTaste = new Symptom("Loss of taste");
+        Symptom headache = new Symptom("Headache");
+        Symptom diarrhea = new Symptom("Diarrhea");
+        Symptom vomit = new Symptom("Severe vomiting");
+
+        //Adding symptoms to list for easier output for asking if patient has said symptom.
+        symptomList.add(fever);
+        symptomList.add(cough);
+        symptomList.add(shortBreath);
+        symptomList.add(tired);
+        symptomList.add(aches);
+        symptomList.add(chills);
+        symptomList.add(soreThroat);
+        symptomList.add(lossSmell);
+        symptomList.add(lossTaste);
+        symptomList.add(headache);
+        symptomList.add(diarrhea);
+        symptomList.add(vomit);
 
         System.out.println("Contact Tracing Program");
         while(infectedPerson == 'y'){
@@ -24,14 +54,14 @@ public class CovidContactApp {
 
             //prints out asking if patient has any symptoms which are taken from a predefined list of symptoms in infected class
             //if patient has symptom, symptom length is set and the object is stored into a list to track patients symptoms
-            for(int index = 0; index < infected.getSymptomList().size(); index++){
+            for(int index = 0; index < symptomList.size(); index++){
                 System.out.printf("Does %s have any symptom of %s? (y/n)\n", infected.getName(),
-                        infected.getSymptomList().get(index).getSympName()); //gets predefined symptom list filled with symptom objects, gets index of said list, gets name attribute of objects in index
+                        symptomList.get(index).getSympName()); //gets predefined symptom list filled with symptom objects, gets index of said list, gets name attribute of objects in index
                 char sign = keyboard.next().charAt(0);
                 if(sign == 'y'){
-                    infected.addSymptom(infected.getSymptomList().get(index));
+                    infected.addSymptom(symptomList.get(index));
                     System.out.printf("How long has %s had this symptom for?\n", infected.getName());
-                    infected.getSymptomList().get(index).setLength(keyboard.nextInt());
+                    symptomList.get(index).setLength(keyboard.nextInt());
                 }
             }
 

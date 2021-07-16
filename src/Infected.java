@@ -2,37 +2,10 @@ import java.util.ArrayList;
 
 public class Infected extends Person{
     private String city, state;
-    Symptom fever, cough, shortBreath, tired, aches, chills, soreThroat, lossSmell, lossTaste, headache, diarrhea, vomit;
-    ArrayList<Symptom> personSymptom = new ArrayList<>();   //holds the persons symptoms
-    ArrayList<Person> contactList = new ArrayList<>();      //holds the contacted people
-    ArrayList<Symptom> symptomList = new ArrayList<>();     //holds the predefined list of symptoms
+    private ArrayList<Symptom> personSymptom = new ArrayList<>();   //holds the persons symptoms
+    private ArrayList<Person> contactList = new ArrayList<>();      //holds the contacted people
 
     public Infected(){
-        fever = new Symptom("Fever");
-        cough = new Symptom("Cough");
-        shortBreath = new Symptom("Shortness of breath or difficulty breathing");
-        tired = new Symptom("Tiredness");
-        aches = new Symptom("Aches");
-        chills = new Symptom("Chills");
-        soreThroat = new Symptom("Sore throat");
-        lossSmell = new Symptom("Loss of smell");
-        lossTaste = new Symptom("Loss of taste");
-        headache = new Symptom("Headache");
-        diarrhea = new Symptom("Diarrhea");
-        vomit = new Symptom("Severe vomiting");
-
-        symptomList.add(fever);
-        symptomList.add(cough);
-        symptomList.add(shortBreath);
-        symptomList.add(tired);
-        symptomList.add(aches);
-        symptomList.add(chills);
-        symptomList.add(soreThroat);
-        symptomList.add(lossSmell);
-        symptomList.add(lossTaste);
-        symptomList.add(headache);
-        symptomList.add(diarrhea);
-        symptomList.add(vomit);
     }
 
     public void setCity(String city) {
@@ -65,10 +38,6 @@ public class Infected extends Person{
 
     public ArrayList<Person> getContactList(){
         return this.contactList;
-    }
-
-    public ArrayList<Symptom> getSymptomList() {
-        return this.symptomList;
     }
 
     //returns string for printing the report
