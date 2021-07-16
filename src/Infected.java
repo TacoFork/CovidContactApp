@@ -4,6 +4,7 @@ public class Infected extends Person{
     private String city, state;
     private ArrayList<Symptom> personSymptom = new ArrayList<>();   //holds the persons symptoms
     private ArrayList<Person> contactList = new ArrayList<>();      //holds the contacted people
+    private ArrayList<Symptom> symptomList = new ArrayList<>();     //holds the list of symptoms.
 
     public Infected(){
     }
@@ -38,6 +39,14 @@ public class Infected extends Person{
 
     public ArrayList<Person> getContactList(){
         return this.contactList;
+    }
+
+    public ArrayList<Symptom> getSymptomList(){
+        return this.symptomList;
+    }
+
+    public void addSymptomsList(Symptom symptom){
+        symptomList.add(symptom);
     }
 
     //returns string for printing the report
